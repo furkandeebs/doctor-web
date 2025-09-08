@@ -4,22 +4,19 @@ export default function Home() {
       style={{
         fontFamily: "Arial, sans-serif",
         backgroundColor: "#f0f9ff",
-        padding: "2rem",
+        padding: "0",
+        margin: "0",
         minHeight: "100vh",
       }}
     >
       <div
-  style={{
-    width: "100%",
-    background: "white",
-    borderRadius: "0",
-    padding: "3rem 2rem",
-    boxShadow: "none",
-  }}
->
+        style={{
+          width: "100%",
+          background: "white",
+          padding: "3rem 2rem",
         }}
       >
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <img
             src="/doctor.jpg"
             alt="Dr. Furkan Derebaşı"
@@ -31,10 +28,10 @@ export default function Home() {
               marginBottom: "1rem",
             }}
           />
-          <h1 style={{ fontSize: "1.8rem", fontWeight: "bold", color: "#0f4c81" }}>
+          <h1 style={{ fontSize: "2rem", fontWeight: "bold", color: "#0f4c81" }}>
             Dr. Furkan Derebaşı
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "#444", marginBottom: "1rem" }}>
+          <p style={{ fontSize: "1.2rem", color: "#444" }}>
             İç Hastalıkları Uzmanı
           </p>
         </div>
@@ -65,10 +62,10 @@ export default function Home() {
           <p style={{ marginTop: "0.5rem" }}>
             <strong>E-posta:</strong>{" "}
             <a
-              href="mailto:furkandeebs@gmail.com"
+              href="mailto:furkanderebasi@example.com"
               style={{ color: "#0f4c81", textDecoration: "none" }}
             >
-              furkanderebasi@gmail.com
+              furkandeebs@gmail.com
             </a>
           </p>
         </section>
@@ -86,7 +83,6 @@ export default function Home() {
               borderRadius: "8px",
               fontWeight: "600",
               textDecoration: "none",
-              transition: "background 0.3s",
             }}
           >
             MHRS Üzerinden Randevu Al
