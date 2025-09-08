@@ -17,7 +17,6 @@ export default function Home() {
     boxShadow: "none",
   }}
 >
-
         }}
       >
         <div style={{ textAlign: "center" }}>
