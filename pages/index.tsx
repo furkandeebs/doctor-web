@@ -9,13 +9,15 @@ export default function Home() {
       }}
     >
       <div
-        style={{
-          maxWidth: "700px",
-          margin: "0 auto",
-          background: "white",
-          borderRadius: "16px",
-          padding: "2.5rem",
-          boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+  style={{
+    width: "100%",
+    background: "white",
+    borderRadius: "0",
+    padding: "3rem 2rem",
+    boxShadow: "none",
+  }}
+>
+
         }}
       >
         <div style={{ textAlign: "center" }}>
