@@ -159,8 +159,9 @@ export default function Home() {
           )}
         </div>
       </div>
+
       {/* Sağ: Profil Kartı */}
-<div
+      <div
   style={{
     flex: 1,
     background: "white",
