@@ -162,50 +162,53 @@ export default function Home() {
 
       {/* Sağ: Profil Kartı */}
       <div
-  style={{
-    flex: 1,
-    background: "white",
-    borderRadius: "16px",
-    padding: "2rem",
-    boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
-    textAlign: "center",
-    maxHeight: "fit-content",
-  }}
->
-  <img
-    src="/doctor.jpg"
-    alt="Dr. Furkan Derebaşı"
-    style={{
-      width: "100%",
-      height: "auto",
-      borderRadius: "0", // artık yuvarlak değil
-      objectFit: "cover",
-      marginBottom: "1rem",
-    }}
-  />
-  <h1 style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#0f4c81" }}>
-    Dr. Furkan Derebaşı
-  </h1>
-  <p>İç Hastalıkları / Dahiliye Uzmanı</p>
-  <p>
-    Bolu Abant İzzet Baysal Üniversitesi Tıp Fakültesi (2019) <br />
-    İstanbul Eğitim ve Araştırma Hastanesi - İç Hastalıkları İhtisası
-  </p>
-  <div style={{ marginTop: "1rem" }}>
-    <a
-      href="https://mhrs.gov.tr/vatandas/#/randevu-al"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        backgroundColor: "#0f4c81",
-        color: "white",
-        padding: "0.6rem 1.2rem",
-        borderRadius: "8px",
-        textDecoration: "none",
-        fontWeight: "600",
-      }}
-    >
-      MHRS Üzerinden Randevu Al
-    </a>
-  </div>
-</div>
+        style={{
+          flex: 1,
+          background: "white",
+          borderRadius: "16px",
+          padding: "2rem",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+          textAlign: "center",
+          maxHeight: "fit-content",
+        }}
+      >
+        <img
+          src="/doctor.jpg"
+          alt="Dr. Furkan Derebaşı"
+          style={{
+            width: "120px",
+            height: "120px",
+            borderRadius: "50%",
+            objectFit: "cover",
+            marginBottom: "1rem",
+          }}
+        />
+        <h1 style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#0f4c81" }}>
+          Dr. Furkan Derebaşı
+        </h1>
+        <p>İç Hastalıkları / Dahiliye Uzmanı</p>
+        <p>
+          Bolu Abant İzzet Baysal Üniversitesi Tıp Fakültesi (2019) <br />
+          İstanbul Eğitim ve Araştırma Hastanesi - İç Hastalıkları İhtisası
+        </p>
+        <div style={{ marginTop: "1rem" }}>
+          <a
+            href="https://mhrs.gov.tr/vatandas/#/randevu-al"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: "#0f4c81",
+              color: "white",
+              padding: "0.6rem 1.2rem",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontWeight: "600",
+            }}
+          >
+            MHRS Üzerinden Randevu Al
+          </a>
+        </div>
+      </div>
+    </main>
+  );
+}
