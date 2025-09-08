@@ -1,98 +1,214 @@
+import { useState } from "react";
+
+interface Question {
+  id: number;
+  name: string;
+  category: string;
+  question: string;
+  answer?: string;
+}
+
 export default function Home() {
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [form, setForm] = useState({
+    name: "",
+    category: "Genel",
+    question: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.question) return;
+
+    const newQuestion: Question = {
+      id: Date.now(),
+      name: form.name,
+      category: form.category,
+      question: form.question,
+    };
+
+    setQuestions([newQuestion, ...questions]);
+    setForm({ name: "", category: "Genel", question: "" });
+  };
+
   return (
     <main
       style={{
         fontFamily: "Arial, sans-serif",
-        backgroundColor: "#f0f9ff",
-        padding: "0",
-        margin: "0",
+        background: "linear-gradient(135deg, #3b82f6, #10b981)",
         minHeight: "100vh",
+        padding: "2rem",
+        color: "#333",
       }}
     >
+      {/* Profil Kartı */}
       <div
         style={{
-          width: "100%",
+          maxWidth: "800px",
+          margin: "0 auto 2rem auto",
           background: "white",
-          padding: "3rem 2rem",
+          borderRadius: "16px",
+          padding: "2rem",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+          textAlign: "center",
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <img
-            src="/doctor.jpg"
-            alt="Dr. Furkan Derebaşı"
-            style={{
-              width: "140px",
-              height: "140px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              marginBottom: "1rem",
-            }}
-          />
-          <h1 style={{ fontSize: "2rem", fontWeight: "bold", color: "#0f4c81" }}>
-            Dr. Furkan Derebaşı
-          </h1>
-          <p style={{ fontSize: "1.2rem", color: "#444" }}>
-            İç Hastalıkları Uzmanı
-          </p>
-        </div>
-
-        <section style={{ marginTop: "2rem" }}>
-          <h2 style={{ fontSize: "1.4rem", fontWeight: "600", color: "#0f4c81" }}>
-            Eğitim ve Uzmanlık
-          </h2>
-          <ul style={{ color: "#333", marginTop: "0.5rem", lineHeight: "1.6" }}>
-            <li>Bolu Abant İzzet Baysal Üniversitesi Tıp Fakültesi (2019)</li>
-            <li>İstanbul Eğitim ve Araştırma Hastanesi - İç Hastalıkları İhtisası</li>
-          </ul>
-        </section>
-
-        <section style={{ marginTop: "2rem" }}>
-          <h2 style={{ fontSize: "1.4rem", fontWeight: "600", color: "#0f4c81" }}>
-            Klinik İlgi Alanları
-          </h2>
-          <p style={{ color: "#333", marginTop: "0.5rem", lineHeight: "1.6" }}>
-            Diyabet, Hipertansiyon, Hipotiroidi, Anemi
-          </p>
-        </section>
-
-        <section style={{ marginTop: "2rem" }}>
-          <h2 style={{ fontSize: "1.4rem", fontWeight: "600", color: "#0f4c81" }}>
-            İletişim
-          </h2>
-          <p style={{ marginTop: "0.5rem" }}>
-            <strong>E-posta:</strong>{" "}
-            <a
-              href="mailto:furkanderebasi@example.com"
-              style={{ color: "#0f4c81", textDecoration: "none" }}
-            >
-              furkandeebs@gmail.com
-            </a>
-          </p>
-        </section>
-
-        <div style={{ marginTop: "2.5rem", textAlign: "center" }}>
+        <img
+          src="/doctor.jpg"
+          alt="Dr. Furkan Derebaşı"
+          style={{
+            width: "120px",
+            height: "120px",
+            borderRadius: "50%",
+            objectFit: "cover",
+            marginBottom: "1rem",
+          }}
+        />
+        <h1 style={{ fontSize: "1.8rem", fontWeight: "bold", color: "#0f4c81" }}>
+          Dr. Furkan Derebaşı
+        </h1>
+        <p>İç Hastalıkları Uzmanı</p>
+        <p>
+          Bolu Abant İzzet Baysal Üniversitesi Tıp Fakültesi (2019) <br />
+          İstanbul Eğitim ve Araştırma Hastanesi - İç Hastalıkları İhtisası
+        </p>
+        <p>
+          <strong>Klinik İlgi Alanları:</strong> Diyabet, Hipertansiyon,
+          Hipotiroidi, Anemi
+        </p>
+        <div style={{ marginTop: "1rem" }}>
           <a
             href="https://mhrs.gov.tr/vatandas/#/randevu-al"
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              display: "inline-block",
               backgroundColor: "#0f4c81",
               color: "white",
-              padding: "0.8rem 1.5rem",
+              padding: "0.6rem 1.2rem",
               borderRadius: "8px",
-              fontWeight: "600",
               textDecoration: "none",
+              fontWeight: "600",
             }}
           >
             MHRS Üzerinden Randevu Al
           </a>
-          <p style={{ fontSize: "0.9rem", marginTop: "0.8rem", color: "#666" }}>
-            MHRS’ye giriş yaptıktan sonra <br />
-            <strong>Bayrampaşa Devlet Hastanesi</strong> üzerinden ismimi seçerek
-            randevu oluşturabilirsiniz.
-          </p>
         </div>
+      </div>
+
+      {/* Soru Sorma Formu */}
+      <div
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto 2rem auto",
+          background: "white",
+          borderRadius: "16px",
+          padding: "2rem",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+        }}
+      >
+        <h2 style={{ color: "#0f4c81" }}>Soru Sor</h2>
+        <form onSubmit={handleSubmit} style={{ marginTop: "1rem" }}>
+          <input
+            type="text"
+            placeholder="Adınız Soyadınız"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            style={{
+              width: "100%",
+              padding: "0.6rem",
+              marginBottom: "1rem",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+            }}
+          />
+          <select
+            value={form.category}
+            onChange={(e) => setForm({ ...form, category: e.target.value })}
+            style={{
+              width: "100%",
+              padding: "0.6rem",
+              marginBottom: "1rem",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+            }}
+          >
+            <option>Genel</option>
+            <option>Diyabet</option>
+            <option>Hipertansiyon</option>
+            <option>Hipotiroidi</option>
+            <option>Anemi</option>
+          </select>
+          <textarea
+            placeholder="Sorunuz..."
+            value={form.question}
+            onChange={(e) => setForm({ ...form, question: e.target.value })}
+            style={{
+              width: "100%",
+              padding: "0.6rem",
+              marginBottom: "1rem",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+              minHeight: "100px",
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              backgroundColor: "#10b981",
+              color: "white",
+              padding: "0.6rem 1.2rem",
+              borderRadius: "8px",
+              fontWeight: "600",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Gönder
+          </button>
+        </form>
+      </div>
+
+      {/* Soru-Cevap Alanı */}
+      <div
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+          background: "white",
+          borderRadius: "16px",
+          padding: "2rem",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+        }}
+      >
+        <h2 style={{ color: "#0f4c81" }}>Sorular ve Cevaplar</h2>
+        {questions.length === 0 ? (
+          <p style={{ marginTop: "1rem" }}>Henüz soru yok.</p>
+        ) : (
+          <ul style={{ marginTop: "1rem", listStyle: "none", padding: 0 }}>
+            {questions.map((q) => (
+              <li
+                key={q.id}
+                style={{
+                  marginBottom: "1rem",
+                  padding: "1rem",
+                  border: "1px solid #eee",
+                  borderRadius: "8px",
+                }}
+              >
+                <p>
+                  <strong>{q.name}</strong> ({q.category})
+                </p>
+                <p>{q.question}</p>
+                {q.answer ? (
+                  <p style={{ color: "#10b981" }}>
+                    <strong>Cevap:</strong> {q.answer}
+                  </p>
+                ) : (
+                  <p style={{ color: "#999" }}>Henüz cevaplanmadı.</p>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </main>
   );
