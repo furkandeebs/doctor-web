@@ -64,7 +64,7 @@ export default function Home() {
           <p style={{ marginTop: "0.5rem" }}>
             <strong>E-posta:</strong>{" "}
             <a
-              href="mailto:furkanderebasi@example.com"
+              href="mailto:furkandeebs@gmail.com"
               style={{ color: "#0f4c81", textDecoration: "none" }}
             >
               furkanderebasi@gmail.com
