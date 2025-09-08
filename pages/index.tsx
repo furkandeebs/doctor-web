@@ -159,7 +159,6 @@ export default function Home() {
           )}
         </div>
       </div>
-
       {/* Sağ: Profil Kartı */}
 <div
   style={{
